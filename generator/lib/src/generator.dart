@@ -1454,10 +1454,15 @@ if (T != dynamic &&
     final noBody = _getMethodAnnotationByType(m, retrofit.NoBody);
     if (noBody != null) {
       blocks.add(
-        declareFinal(dataVar, type: refer('String?'))
-            .assign(refer('null'))
+        declareFinal(dataVar)
+            .assign(refer('FormData').newInstance([]))
             .statement,
       );
+      // blocks.add(
+      //   declareFinal(dataVar, type: refer('String?'))
+      //       .assign(refer('null'))
+      //       .statement,
+      // );
       return;
     }
 
